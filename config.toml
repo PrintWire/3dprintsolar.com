@@ -1,99 +1,47 @@
 baseURL = "https://3dprintsolar.com/"
 languageCode = "en-us"
 title = "3D Print Solar"
-theme = "printwire-theme"
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [params]
-  siteName       = "3D Print Solar"
-  tagline        = "Additive manufacturing for solar energy systems — custom mounting structures, concentrated solar geometry, and PV components without conventional tooling."
-  primaryColor   = "#f59e0b"
-  bgColor        = "#080600"
-  fontPrimary    = "Rajdhani"
-  fontSecondary  = "Exo 2"
-  fontURL        = "https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap"
-  ogImage        = "/images/01_bracket_layers.png"
-  favicon        = "☀️"
-  pubmedQuery    = "additive+manufacturing+solar+photovoltaic+3D+printing+renewable+energy"
-  contactEmail   = "maxdavisgroup@gmail.com"
-  web3formsKey   = "6f33053b-6d08-414b-9615-665f88c98da8"
-  xometryId      = "XOMETRY_AFFILIATE_ID"
-  domain         = "3dprintsolar.com"
-  heroImage      = "/images/01_solar_panel.png"
-
-[[params.stats]]
-  number = "UV"
-  label  = "Resistant Materials"
-
-[[params.stats]]
-  number = "200°C"
-  label  = "Thermal Rating"
-
-[[params.stats]]
-  number = "Custom"
-  label  = "Tilt Angles"
-
-[[params.stats]]
-  number = "48hr"
-  label  = "Prototype Delivery"
-
-[[params.services]]
-  title = "Panel Mounting Structures"
-  icon  = "◎"
-  image = "/images/02_sla_resin.png"
-  short = "Custom racking, tilt-adjustable mounts, and non-penetrating ballast systems printed in UV-stabilized polymer and aluminum alloy."
-
-[[params.services]]
-  title = "Concentrated Solar Geometry"
-  icon  = "✦"
-  image = "/images/02_thermal_absorber.png"
-  short = "Parabolic dish reflectors, Fresnel lens arrays, and CSP trough components for concentrated solar power applications."
-
-[[params.services]]
-  title = "PV System Integration Components"
-  icon  = "⚡"
-  image = "/images/03_printing_process.png"
-  short = "Junction boxes, conduit fittings, inverter housings, and wiring management for photovoltaic systems — IP65-rated and UV-stabilized."
-
-[[params.services]]
-  title = "Rapid-Deploy Off-Grid Systems"
-  icon  = "◈"
-  image = "/images/03_tracking_system.png"
-  short = "Portable solar station components for disaster response, remote sensing, and field research deployments."
-
-[markup.goldmark.renderer]
-  unsafe = true
+siteName      = "3D Print Solar"
+logoHtml      = '3D&nbsp;PRINT&nbsp;<span class="ed-logo-accent">SOLAR</span>'
+tagline       = "Additive manufacturing for photovoltaics and solar hardware."
+description   = "3D Print Solar — additive manufacturing for photovoltaics and solar hardware, covering printed cell components, mounting and racking, trackers, enclosures, and a directory connecting installers to suppliers."
+keywords      = "3D printed solar, photovoltaic additive manufacturing, printed solar mounting, solar tracker parts, PV enclosures, solar racking, printed solar components"
+logoEmoji     = "☀"
+contactEmail  = "maxdavisgroup@gmail.com"
+ogImage       = "/images/s02_panel.png"
+footerServicesLabel = "Suppliers"
 
 [[menu.main]]
-  name   = "Home"
-  url    = "/"
-  weight = 1
-
+name = "Home"
+url = "/"
+weight = 1
 [[menu.main]]
-  name   = "About"
-  url    = "/about/"
-  weight = 2
-
+name = "About"
+url = "/about/"
+weight = 2
 [[menu.main]]
-  name   = "Articles"
-  url    = "/articles/"
-  weight = 3
-
+name = "Articles"
+url = "/articles/"
+weight = 3
 [[menu.main]]
-  name   = "Services"
-  url    = "/services/"
-  weight = 4
-
+name = "Services"
+url = "/services/"
+weight = 4
 [[menu.main]]
-  name   = "Contact"
-  url    = "/contact/"
-  weight = 5
-
+name = "Contact"
+url = "/contact/"
+weight = 5
 [[menu.main]]
-  name   = "Advertise"
-  url    = "/advertise/"
-  weight = 6
-
-[[menu.main]]
-name   = "3D Viewer"
-url    = "/viewer.html"
-weight = 99
+name = "Advertise"
+url = "/advertise/"
+weight = 6
