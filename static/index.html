@@ -82,36 +82,10 @@
 
     <div class="ed-section-label">
       Analysis &amp; Deep Dives
-      <a href="#">View All &rarr;</a>
+      <a href="/articles/">View All &rarr;</a>
     </div>
-    <div class="ed-list">
-      <article class="ed-list-item">
-        <img src="images/sp02_panel_array.png" alt="Solar tracker drive gear">
-        <div>
-          <span class="ed-badge">Trackers</span>
-          <div class="ed-card-meta">June 24, 2026 · 9 min read</div>
-          <h3><a href="#">Printed Tracker Drives Trim Solar Balance-of-System Cost</a></h3>
-          <p class="ed-card-excerpt">Additively manufactured drive gears and pivots are cutting weight and part count in single-axis trackers — and letting integrators tune geometry per site.</p>
-        </div>
-      </article>
-      <article class="ed-list-item">
-        <img src="images/sp03_busbar.png" alt="Printed solar mounting bracket">
-        <div>
-          <span class="ed-badge">Racking</span>
-          <div class="ed-card-meta">June 20, 2026 · 7 min read</div>
-          <h3><a href="#">Custom Mounting Brackets Without Injection Tooling</a></h3>
-          <p class="ed-card-excerpt">Rooftop and ground-mount integrators are printing site-specific brackets and clamps to spec, skipping the mold lead time for low-volume runs.</p>
-        </div>
-      </article>
-      <article class="ed-list-item">
-        <img src="images/sp04_encapsulant.png" alt="Printed cell metallization">
-        <div>
-          <span class="ed-badge">Cells</span>
-          <div class="ed-card-meta">June 18, 2026 · 10 min read</div>
-          <h3><a href="#">Printed Contacts Push Cell Metallization Finer</a></h3>
-          <p class="ed-card-excerpt">Additive deposition of contact fingers is narrowing line widths and cutting silver use — recovering active area on the front of the cell.</p>
-        </div>
-      </article>
+    <div class="ed-list" id="pwDeepDives">
+      <div style="padding:1.5rem;color:var(--text-faint);">Loading analysis…</div>
     </div>
 
     <div class="ed-section-label">
@@ -421,6 +395,31 @@ document.querySelector('.ed-nav-toggle')?.addEventListener('click', () => {
       ? top.map(card).join('')
       : '<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--text-faint);">Unable to load news.</div>';
   }
+})();
+
+// -- Analysis & Deep Dives: PrintWire catalog in list format --
+(function(){
+  var box = document.getElementById('pwDeepDives');
+  if (!box) return;
+  function esc(s){var d=document.createElement('div');d.appendChild(document.createTextNode(s==null?'':s));return d.innerHTML;}
+  var empty = '<div style="padding:1.5rem;color:var(--text-faint);">In-depth analysis and deep dives are on the way — check back soon.</div>';
+  fetch('network.json',{cache:'no-store'})
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(items){
+      items = (items || []).slice();
+      items.sort(function(a,b){ return (b.iso||'').localeCompare(a.iso||''); });
+      if (!items.length){ box.innerHTML = empty; return; }
+      box.innerHTML = items.slice(0,8).map(function(a){
+        var img = a.img ? '<img src="'+esc(a.img)+'" alt="" loading="lazy">' : '';
+        var meta = esc(a.date||'') + (a.origin ? ' · '+esc(a.origin) : '');
+        return '<article class="ed-list-item">'+img+'<div>'+
+          '<div class="ed-card-meta">'+meta+'</div>'+
+          '<h3><a href="'+esc(a.url)+'">'+esc(a.title)+'</a></h3>'+
+          '<p class="ed-card-excerpt">'+esc(a.summary||'')+'</p>'+
+          '</div></article>';
+      }).join('');
+    })
+    .catch(function(){ box.innerHTML = empty; });
 })();
 </script>
 </body>
