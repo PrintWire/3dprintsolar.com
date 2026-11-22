@@ -14,7 +14,7 @@ title = "3D Print Solar"
 siteName      = "3D Print Solar"
 logoHtml      = '3D&nbsp;PRINT&nbsp;<span class="ed-logo-accent">SOLAR</span>'
 tagline       = "Additive manufacturing for photovoltaics and solar hardware."
-description   = "3D Print Solar — additive manufacturing for photovoltaics and solar hardware, covering printed cell components, mounting and racking, trackers, enclosures, and a directory connecting installers to suppliers."
+description   = "3D Print Solar is a PrintWire network site about 3D printing for solar hardware. PrintWire passes quote requests to specialised manufacturers and returns pricing. PrintWire does not manufacture parts itself."
 keywords      = "3D printed solar, photovoltaic additive manufacturing, printed solar mounting, solar tracker parts, PV enclosures, solar racking, printed solar components"
 logoEmoji     = "☀"
 contactEmail  = "maxdavisgroup@gmail.com"
